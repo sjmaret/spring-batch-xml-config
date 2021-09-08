@@ -1,0 +1,19 @@
+<beans:beans xmlns="http://www.springframework.org/schema/batch" xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/batch
+           http://www.springframework.org/schema/batch/spring-batch-3.0.xsd">
+
+	<job id="job">
+		<step id="step1">
+			<tasklet>
+				<chunk reader="itemReader" processor="itemProcessor" writer="itemWriter" commit-interval="1">
+			</chunk></tasklet>
+		</step>
+	</job>
+	
+	<beans:bean id="itemReader" class="com.spring.batch.sample.step.Reader">
+	<beans:bean id="itemProcessor" class="com.spring.batch.sample.step.Processor">
+	<beans:bean id="itemWriter" class="com.spring.batch.sample.step.Writer">
+
+</beans:bean></beans:bean></beans:bean></beans:beans>
